@@ -1,5 +1,5 @@
 ##################### create s3 buckket ########################
-resource "aws_s3_bucket" "example" {
+resource "aws_s3_bucket" "terraform_state" {
   bucket = "om-qqqqqqqqqqqqqsssssssssssss"      #bucket name which you want to create
 
   tags = {
