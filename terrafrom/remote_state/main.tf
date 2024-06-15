@@ -1,6 +1,6 @@
 ##################### create s3 buckket ########################
 resource "aws_s3_bucket" "example" {
-  bucket = "qqqqqqqqqqqqqsssssssssssss"
+  bucket = "om-qqqqqqqqqqqqqsssssssssssss"      #bucket name which you want to create
 
   tags = {
     Name        = "My bucket"
@@ -15,7 +15,7 @@ provider "aws" {
 }
 
 resource "aws_dynamodb_table" "terraform_lock" {
-  name           = "terraform-lock-table"
+  name           = "om-terraform-lock-table"     #DynomoDB table name which you want to create
   billing_mode   = "PAY_PER_REQUEST"
   hash_key       = "LockID"
 
@@ -33,9 +33,10 @@ resource "aws_dynamodb_table" "terraform_lock" {
 ##################################
 terraform {
   backend "s3" {
-    bucket         = "qqqqqqqqqqqqqsssssssssssss"
+    bucket         = "qqqqqqqqqqqqqsssssssssssss" #s3 bucket name where the state file are going to stored this bucket should be already exits
     key            = "terraform.tfstate"
     region         = "ap-south-1"
-    dynamodb_table = "terraform-lock-table"
+    dynamodb_table = "terraform-lock-table"       #DynomoDB table which should be already exits 
+    encrypt        = true 
   }
 }

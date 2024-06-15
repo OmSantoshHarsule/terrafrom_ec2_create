@@ -1,3 +1,5 @@
+######################################## Create EC2 Instance ########################################################################
+
 data "aws_ami" "ubuntu" {
   most_recent = true
 
@@ -19,7 +21,7 @@ resource "aws_instance" "web" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "HelloWorld" #name of the ec2 instance
+    Name = "HelloWorld" #name of the ec2 instance      # instanace name which u want to create 
   }
 }
 terraform {
@@ -28,5 +30,6 @@ terraform {
     key            = "ec2-instance/terraform.tfstate"  # Adjust key path if needed
     region         = "ap-south-1"
     dynamodb_table = "terraform-lock-table"
+    encrypt        = true
   }
 }
