@@ -22,3 +22,11 @@ resource "aws_instance" "web" {
     Name = "HelloWorld" #name of the ec2 instance
   }
 }
+terraform {
+  backend "s3" {
+    bucket         = "qqqqqqqqqqqqqsssssssssssss"
+    key            = "ec2-instance/terraform.tfstate"  # Adjust key path if needed
+    region         = "ap-south-1"
+    dynamodb_table = "terraform-lock-table"
+  }
+}
