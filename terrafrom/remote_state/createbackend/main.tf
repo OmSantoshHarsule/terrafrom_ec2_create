@@ -30,13 +30,3 @@ resource "aws_dynamodb_table" "terraform_lock" {
   }
 }
 
-##################################
-terraform {
-  backend "s3" {
-    bucket         = "qqqqqqqqqqqqqsssssssssssss" #s3 bucket name where the state file are going to stored this bucket should be already exits
-    key            = "terraform.tfstate"
-    region         = "ap-south-1"
-    dynamodb_table = "terraform-lock-table"       #DynomoDB table which should be already exits 
-    encrypt        = true 
-  }
-}

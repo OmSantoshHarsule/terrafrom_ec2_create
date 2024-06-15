@@ -21,15 +21,15 @@ resource "aws_instance" "web" {
   instance_type = "t3.micro"
 
   tags = {
-    Name = "HelloWorld" #name of the ec2 instance      # instanace name which u want to create 
+    Name = "terraform-ec-2" #name of the ec2 instance      # instanace name which u want to create 
   }
 }
 terraform {
   backend "s3" {
-    bucket         = "qqqqqqqqqqqqqsssssssssssss"
+    bucket         = "----" #s3 bucket name after running terraform apply in createbackend
     key            = "ec2-instance/terraform.tfstate"  # Adjust key path if needed
     region         = "ap-south-1"
-    dynamodb_table = "terraform-lock-table"
+    dynamodb_table = "-----" #DynomoDB table name after running terraform apply in createbackend
     encrypt        = true
   }
 }
