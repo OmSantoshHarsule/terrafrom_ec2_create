@@ -1,6 +1,6 @@
 ##################### create s3 buckket ########################
 resource "aws_s3_bucket" "example" {
-  bucket = "my-tf-test-bucket"
+  bucket = "qqqqqqqqqqqqqsssssssssssss"
 
   tags = {
     Name        = "My bucket"
